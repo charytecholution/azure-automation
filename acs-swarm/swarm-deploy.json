@@ -1,0 +1,49 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "containerServices_mySwarmCluster_name": {
+            "defaultValue": "mySwarmCluster",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/a4e320e6-d0fe-47dc-84ba-2049e1f6d4b5/resourcegroups/test/providers/Microsoft.ContainerService/containerServices/mySwarmCluster'.",
+            "type": "Microsoft.ContainerService/containerServices",
+            "name": "[parameters('containerServices_mySwarmCluster_name')]",
+            "apiVersion": "2016-03-30",
+            "location": "southindia",
+            "scale": null,
+            "properties": {
+                "orchestratorProfile": {
+                    "orchestratorType": "Swarm"
+                },
+                "masterProfile": {
+                    "count": 1,
+                    "dnsPrefix": "mySwarmClu-test-a4e320mgmt"
+                },
+                "agentPoolProfiles": [
+                    {
+                        "name": "agentpool0",
+                        "count": 3,
+                        "vmSize": "Standard_D2_v2",
+                        "dnsPrefix": "mySwarmClu-test-a4e320agent"
+                    }
+                ],
+                "linuxProfile": {
+                    "adminUsername": "azureuser",
+                    "ssh": {
+                        "publicKeys": [
+                            {
+                                "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCrwfUw6ZdGLxHTpUfWOu0Z+1bYSCPL4fvk2I1bWGavoZlkrDvxZiZNh0+E06lkO035jJd3wakJ5bx3+yIhXgp8Kcg+OyKJ+JsRqULZOE0SNI8Mq79Z0W1C8XYJ+EVBlTq7+BNCXAf4Och1Eh5xQc91Q9TQBaUz7putMPi7L1FOe/LvVxsmH6Qz3h0zmcbCtTr3F1kDYkcAobr0gW/2l01I6+BwCueSLRSS0kTWPqtaRrNGcu5VNE+ypOwnt2yjNnOOtUdwM1hjH/cP94aeuvvvpcNd+gAuLYLHKedWVKjfduTynrwmq7vjZ3zTKoCITMMXRBBbnB0fbtRQrkzNP4vr kotachary@kotas-MacBook-Pro.local\n"
+                            }
+                        ]
+                    }
+                }
+            },
+            "dependsOn": []
+        }
+    ]
+}
