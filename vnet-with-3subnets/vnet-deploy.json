@@ -1,47 +1,112 @@
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "name": {
-            "type": "string"
+        "virtualNetworks_test_vnet_name": {
+            "defaultValue": "test-vnet",
+            "type": "String"
         },
-        "location": {
-            "type": "string"
+        "subnets_sn_1_name": {
+            "defaultValue": "sn-1",
+            "type": "String"
         },
-        "addressPrefix": {
-            "type": "string"
+        "subnets_sn_2_name": {
+            "defaultValue": "sn-2",
+            "type": "String"
         },
-        "subnetName": {
-            "type": "string"
-        },
-        "subnetAddressPrefix": {
-            "type": "string"
-        },
-        "enableDdosProtection": {
-            "type": "string"
+        "subnets_default_name": {
+            "defaultValue": "default",
+            "type": "String"
         }
     },
+    "variables": {},
     "resources": [
         {
-            "apiVersion": "2017-08-01",
-            "name": "[parameters('name')]",
+            "comments": "Generalized from resource: '/subscriptions/a4e320e6-d0fe-47dc-84ba-2049e1f6d4b5/resourceGroups/test/providers/Microsoft.Network/virtualNetworks/test-vnet'.",
             "type": "Microsoft.Network/virtualNetworks",
-            "location": "[parameters('location')]",
+            "name": "[parameters('virtualNetworks_test_vnet_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "southindia",
+            "scale": null,
             "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "7ea8adc6-2b4a-42cb-bd9a-3b9134b93f2b",
                 "addressSpace": {
                     "addressPrefixes": [
-                        "[parameters('addressPrefix')]"
+                        "10.0.0.0/16"
                     ]
                 },
                 "subnets": [
                     {
-                        "name": "[parameters('subnetName')]",
+                        "name": "default",
+                        "etag": "W/\"325aac9f-2e57-496b-867f-985a424edb23\"",
                         "properties": {
-                            "addressPrefix": "[parameters('subnetAddressPrefix')]"
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.0.0/24"
+                        }
+                    },
+                    {
+                        "name": "sn-1",
+                        "etag": "W/\"325aac9f-2e57-496b-867f-985a424edb23\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.1.0/24"
+                        }
+                    },
+                    {
+                        "name": "sn-2",
+                        "etag": "W/\"325aac9f-2e57-496b-867f-985a424edb23\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.2.0/24"
                         }
                     }
-                ]
-            }
+                ],
+                "virtualNetworkPeerings": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/a4e320e6-d0fe-47dc-84ba-2049e1f6d4b5/resourceGroups/test/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_test_vnet_name'), '/', parameters('subnets_default_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.0.0/24"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_test_vnet_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/a4e320e6-d0fe-47dc-84ba-2049e1f6d4b5/resourceGroups/test/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/sn-1'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_test_vnet_name'), '/', parameters('subnets_sn_1_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.1.0/24"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_test_vnet_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/a4e320e6-d0fe-47dc-84ba-2049e1f6d4b5/resourceGroups/test/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/sn-2'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_test_vnet_name'), '/', parameters('subnets_sn_2_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.2.0/24"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_test_vnet_name'))]"
+            ]
         }
     ]
 }
