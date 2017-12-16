@@ -1,0 +1,64 @@
+{
+  "apiVersion": "vlabs",
+  "properties": {
+    "orchestratorProfile": {
+      "orchestratorType": "SwarmMode"
+    },
+    "masterProfile": {
+      "count": 3,
+      "dnsPrefix": "rrs-acs-master",
+      "vmSize": "Standard_A2",
+      "vnetSubnetID": "/subscriptions/0538e1a6-2765-4a0e-a204-4b6013015663/resourceGroups/rrs-dev-rg/providers/Microsoft.Network/virtualNetworks/rrs-dev-vnet/subnets/rrs-dev-sn1",
+      "firstConsecutiveStaticIP": "13.0.1.5",
+      "storageProfile": "ManagedDisks",
+      "oauthEnabled": false,
+      "preProvisionExtension": null,
+      "extensions": [],
+      "distro": "ubuntu"
+    },
+    "agentPoolProfiles": [
+      {
+        "name": "agentprivate",
+        "count": 1,
+        "vmSize": "Standard_A2",
+        "osType": "Linux",
+        "availabilityProfile": "VirtualMachineScaleSets",
+        "storageProfile": "ManagedDisks",
+        "vnetSubnetID": "/subscriptions/0538e1a6-2765-4a0e-a204-4b6013015663/resourceGroups/rrs-dev-rg/providers/Microsoft.Network/virtualNetworks/rrs-dev-vnet/subnets/rrs-dev-sn2",
+        "distro": "ubuntu",
+        "fqdn": "",
+        "preProvisionExtension": null,
+        "extensions": []
+      },
+      {
+        "name": "agentpublic",
+        "count": 1,
+        "vmSize": "Standard_A2",
+        "dnsPrefix": "rrs-acs-agent",
+        "osType": "Linux",
+        "ports": [
+          80,
+          443,
+          8080
+        ],
+        "availabilityProfile": "VirtualMachineScaleSets",
+        "storageProfile": "ManagedDisks",
+        "vnetSubnetID": "/subscriptions/0538e1a6-2765-4a0e-a204-4b6013015663/resourceGroups/rrs-dev-rg/providers/Microsoft.Network/virtualNetworks/rrs-dev-vnet/subnets/rrs-dev-sn3",
+        "distro": "ubuntu",
+        "fqdn": "",
+        "preProvisionExtension": null,
+        "extensions": []
+      }
+    ],
+    "linuxProfile": {
+      "adminUsername": "acs-admin",
+      "ssh": {
+        "publicKeys": [
+          {
+            "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCrwfUw6ZdGLxHTpUfWOu0Z+1bYSCPL4fvk2I1bWGavoZlkrDvxZiZNh0+E06lkO035jJd3wakJ5bx3+yIhXgp8Kcg+OyKJ+JsRqULZOE0SNI8Mq79Z0W1C8XYJ+EVBlTq7+BNCXAf4Och1Eh5xQc91Q9TQBaUz7putMPi7L1FOe/LvVxsmH6Qz3h0zmcbCtTr3F1kDYkcAobr0gW/2l01I6+BwCueSLRSS0kTWPqtaRrNGcu5VNE+ypOwnt2yjNnOOtUdwM1hjH/cP94aeuvvvpcNd+gAuLYLHKedWVKjfduTynrwmq7vjZ3zTKoCITMMXRBBbnB0fbtRQrkzNP4vr"
+          }
+        ]
+      }
+    }
+  }
+}
