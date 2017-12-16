@@ -1,0 +1,96 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "agentprivateCount": {
+      "value": 1
+    },
+    "agentprivateVMSize": {
+      "value": "Standard_A2"
+    },
+    "agentprivateVnetSubnetID": {
+      "value": "/subscriptions/0538e1a6-2765-4a0e-a204-4b6013015663/resourceGroups/rrs-dev-rg/providers/Microsoft.Network/virtualNetworks/rrs-dev-vnet/subnets/rrs-dev-sn2"
+    },
+    "agentprivateosImageOffer": {
+      "value": "UbuntuServer"
+    },
+    "agentprivateosImagePublisher": {
+      "value": "Canonical"
+    },
+    "agentprivateosImageSKU": {
+      "value": "16.04-LTS"
+    },
+    "agentprivateosImageVersion": {
+      "value": "16.04.201711211"
+    },
+    "agentpublicCount": {
+      "value": 1
+    },
+    "agentpublicEndpointDNSNamePrefix": {
+      "value": "rrs-acs-agent"
+    },
+    "agentpublicVMSize": {
+      "value": "Standard_A2"
+    },
+    "agentpublicVnetSubnetID": {
+      "value": "/subscriptions/0538e1a6-2765-4a0e-a204-4b6013015663/resourceGroups/rrs-dev-rg/providers/Microsoft.Network/virtualNetworks/rrs-dev-vnet/subnets/rrs-dev-sn3"
+    },
+    "agentpublicosImageOffer": {
+      "value": "UbuntuServer"
+    },
+    "agentpublicosImagePublisher": {
+      "value": "Canonical"
+    },
+    "agentpublicosImageSKU": {
+      "value": "16.04-LTS"
+    },
+    "agentpublicosImageVersion": {
+      "value": "16.04.201711211"
+    },
+    "dockerComposeDownloadURL": {
+      "value": "https://github.com/docker/compose/releases/download"
+    },
+    "dockerEngineDownloadRepo": {
+      "value": "https://aptdocker.azureedge.net/repo"
+    },
+    "firstConsecutiveStaticIP": {
+      "value": "13.0.1.5"
+    },
+    "fqdnEndpointSuffix": {
+      "value": "cloudapp.azure.com"
+    },
+    "linuxAdminUsername": {
+      "value": "acs-admin"
+    },
+    "location": {
+      "value": ""
+    },
+    "masterEndpointDNSNamePrefix": {
+      "value": "rrs-acs-master"
+    },
+    "masterVMSize": {
+      "value": "Standard_A2"
+    },
+    "masterVnetSubnetID": {
+      "value": "/subscriptions/0538e1a6-2765-4a0e-a204-4b6013015663/resourceGroups/rrs-dev-rg/providers/Microsoft.Network/virtualNetworks/rrs-dev-vnet/subnets/rrs-dev-sn1"
+    },
+    "osImageOffer": {
+      "value": "UbuntuServer"
+    },
+    "osImagePublisher": {
+      "value": "Canonical"
+    },
+    "osImageSKU": {
+      "value": "16.04-LTS"
+    },
+    "osImageVersion": {
+      "value": "16.04.201711211"
+    },
+    "sshRSAPublicKey": {
+      "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCrwfUw6ZdGLxHTpUfWOu0Z+1bYSCPL4fvk2I1bWGavoZlkrDvxZiZNh0+E06lkO035jJd3wakJ5bx3+yIhXgp8Kcg+OyKJ+JsRqULZOE0SNI8Mq79Z0W1C8XYJ+EVBlTq7+BNCXAf4Och1Eh5xQc91Q9TQBaUz7putMPi7L1FOe/LvVxsmH6Qz3h0zmcbCtTr3F1kDYkcAobr0gW/2l01I6+BwCueSLRSS0kTWPqtaRrNGcu5VNE+ypOwnt2yjNnOOtUdwM1hjH/cP94aeuvvvpcNd+gAuLYLHKedWVKjfduTynrwmq7vjZ3zTKoCITMMXRBBbnB0fbtRQrkzNP4vr"
+    },
+    "targetEnvironment": {
+      "value": "AzurePublicCloud"
+    }
+  }
+}
